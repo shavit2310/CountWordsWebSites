@@ -1,8 +1,8 @@
 # CountWordsWebSites
-Count words occurency in defrent web sites
+Count words occurrence in different websites
 
 Input: list of URLs
-Output: list of most common words at this sites, by word length.
+Output: list of most common words atal of this sites, by word length.
 
 Printout format as followed:
 length 2: את
@@ -13,6 +13,6 @@ length 4: היום
 etc.
 
 Next step:
-Clear any garbdge.
-Garbdge: len of 1 if not required.
+Clear any garbage.
+Garbage: len of 1 if not required.
 

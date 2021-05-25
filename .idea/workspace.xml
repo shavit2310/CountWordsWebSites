@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a90637e5-6898-4a57-84bd-17ce7db0445e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a90637e5-6898-4a57-84bd-17ce7db0445e" name="Default Changelist" comment="Add a new function - clcGarbdge, that delete exstra unneeded data">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +55,18 @@
       <option name="presentableId" value="Default" />
       <updated>1621939936244</updated>
     </task>
+    <task id="LOCAL‎00001" summary="Add a new function - clcGarbdge, that delete exstra unneeded data">
+      <created>1621944375914</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1621944375914</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add a new function - clcGarbdge, that delete exstra unneeded data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a new function - clcGarbdge, that delete exstra unneeded data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="0" key="#xdebugger.evaluate" timestamp="1621943682496">
@@ -103,6 +113,10 @@
       <screen x="0" y="0" width="1097" height="577" />
     </state>
     <state width="1076" height="146" key="GridCell.Tab.1.right/0.0.1097.577@0.0.1097.577" timestamp="1621944056968" />
+    <state x="141" y="21" key="Vcs.Push.Dialog.v2" timestamp="1621944387028">
+      <screen x="0" y="0" width="1097" height="577" />
+    </state>
+    <state x="141" y="21" key="Vcs.Push.Dialog.v2/0.0.1097.577@0.0.1097.577" timestamp="1621944387028" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

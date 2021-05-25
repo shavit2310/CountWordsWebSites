@@ -18,7 +18,7 @@ def wordStor(site):
 
     # We sum the two countesr and get a list with words count from most to less common
     total = c_div + c_p
-    list_most_common_words = total.most_common(10)
+    list_most_common_words = total.most_common(50)
 
     return list_most_common_words
 
@@ -34,10 +34,23 @@ def addNextLowNum(full_list, search_value, indx):
         if lst[1] <= search_value[1]:
           # First or in the middle
           full_list.insert(i, search_value)
-          return (1)
+          return (full_list)
     # At rge end of a list
     full_list.append(search_value)
-    return (1)
+    return (full_list)
+
+def clnGarbdge(fullList):
+    # Decidion: len of 1 char that is not currency
+    values_list = [(k,r[0]) for k, r in enumerate(fullList) if len(r[0]) < 2]
+    accepted_list = ['$','₪','£','¥',' ₣' ,'₤' ,'₧' ,'€' ,'₹' ,'₩' ,'₴' ,'₯','₮','₰' ,'₲', '₱', '₳', '₵' ,'₭' ,'₫']
+    #print(values_list)
+
+    values = len(values_list)
+    while values:
+        if not values_list[values-1][1] in accepted_list:
+            del fullList[values_list[values-1][0]]
+        values -=1
+    return fullList
 
 if __name__ == '__main__':
     arr = ['http://he.wikipedia.org', 'http://ynet.co.il', 'http://www.talniri.co.il']
@@ -58,6 +71,7 @@ if __name__ == '__main__':
         for input_value in word_tuple:
             # Combine the word numerator into one ordered list
             values_list = [r[0] for r in over_all]
+
             indx = values_list.index(input_value[0]) if input_value[0] in values_list else -1
             search = input_value
 
@@ -69,6 +83,7 @@ if __name__ == '__main__':
             addNextLowNum(over_all, search,indx)
         #print("Over all list, each round", len(over_all), over_all)
 
+    clnGarbdge(over_all)
     k=len(over_all)
     # print word by its numerator from lower to higher (reverse)
     # reverse operation is costly then print reverse

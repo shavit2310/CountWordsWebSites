@@ -4,7 +4,7 @@ from collections import Counter
 from string import punctuation
 
 
-def wordStor(site):
+def word_store(site):
     # We get the url
     r = requests.get(site)
     soup = BeautifulSoup(r.content, features="lxml")
@@ -24,37 +24,38 @@ def wordStor(site):
     return list_most_common_words
 
 
-def addNextLowNum(full_list, search_value, indx):
+def add_next_low_num(full_list, search_value, index):
     # Full_list is ordered from high occurrences to low,
     # in order to reach on the search to popular first
     if indx != -1:
         # Dispose duplications
-        over_all.pop(indx)
+        over_all.pop(index)
 
     for i, lst in enumerate(full_list):
         # Keep the index of the search_value
         if lst[1] <= search_value[1]:
             # First or in the middle
             full_list.insert(i, search_value)
-            return (full_list)
+            return full_list
     # At the end of a list
     full_list.append(search_value)
-    return (full_list)
+    return full_list
 
 
-def clnGarbdge(fullList):
+def cln_garbage(full_list):
     # Decision: len of 1 char that is not currency
-    values_list = [(k, r[0]) for k, r in enumerate(fullList) if len(r[0]) < 2]
+
+    list_of_values = [(x, r[0]) for x, r in enumerate(full_list) if len(r[0]) < 2]
     accepted_list = ['$', '₪', '£', '¥', ' ₣', '₤', '₧', '€', '₹', '₩', '₴', '₯', '₮', '₰', '₲', '₱', '₳', '₵', '₭',
                      '₫']
-    # print(values_list)
+    # print(list_of_values)
 
-    values = len(values_list)
+    values = len(list_of_values)
     while values:
-        if not values_list[values - 1][1] in accepted_list:
-            del fullList[values_list[values - 1][0]]
+        if not list_of_values[values - 1][1] in accepted_list:
+            del full_list[list_of_values[values - 1][0]]
         values -= 1
-    return fullList
+    return full_list
 
 
 if __name__ == '__main__':
@@ -64,7 +65,7 @@ if __name__ == '__main__':
     # For each url in the list, count all words
     for web_page in arr:
         # For each web page Return a list of tuple that include count of words in the web page
-        word_tuple = wordStor(web_page)
+        word_tuple = word_store(web_page)
         # print("New words list", len(word_tuple), word_tuple)
         # Merge lists
         if not over_all:
@@ -75,9 +76,9 @@ if __name__ == '__main__':
         # Handle addition of elements while combine the word occurrences from all sites
         for input_value in word_tuple:
             # Combine the word numerator into one ordered list
-            values_list = [r[0] for r in over_all]
+            list_of_values = [r[0] for r in over_all]
 
-            indx = values_list.index(input_value[0]) if input_value[0] in values_list else -1
+            indx = list_of_values.index(input_value[0]) if input_value[0] in list_of_values else -1
             search = input_value
 
             if indx != -1:
@@ -85,11 +86,11 @@ if __name__ == '__main__':
                 tmp = (input_value[0], input_value[1] + over_all[indx][1])
                 search = tmp
 
-            addNextLowNum(over_all, search, indx)
+            add_next_low_num(over_all, search, indx)
         # print("Over all list, each round", len(over_all), over_all)
 
     # Deal with clean data
-    clnGarbdge(over_all)
+    cln_garbage(over_all)
 
     # Print word by its numerator from lower to higher (reverse)
     # Reverse operation is costly then print reverse
